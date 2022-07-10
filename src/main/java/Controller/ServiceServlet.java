@@ -49,6 +49,7 @@ public class ServiceServlet extends HttpServlet {
                 req.setAttribute("giaPhim",film.getGiaPhim());
                 int idUser = Integer.parseInt(req.getParameter("idUser"));
                 req.setAttribute("idUser",idUser);
+                req.setAttribute("listGheDrum",GheService.listGheDrumByIdPhim(idPhim));
                 req.setAttribute("soLuongDaMua",lichSuMuaVeDao.quantityTicket(idPhim));
                 requestDispatcher = req.getRequestDispatcher("/Ghe.jsp");
                 requestDispatcher.forward(req,resp);

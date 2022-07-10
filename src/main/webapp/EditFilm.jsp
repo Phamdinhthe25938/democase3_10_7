@@ -21,9 +21,9 @@
       margin: 0;
       padding-top: 40px;
       color: #2e323c;
-      background: #f5f6fa;
       position: relative;
       height: 100%;
+      background: antiquewhite;
     }
     .account-settings .user-profile {
       margin: 0 0 1rem 0;
@@ -85,7 +85,7 @@
   <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
       <div class="card h-100">
-        <div class="card-body">
+        <div class="card-body" style="background: aliceblue">
           <div class="account-settings">
             <div class="user-profile">
               <div class="user-avatar">
@@ -104,8 +104,8 @@
     </div>
     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
       <div class="card h-100">
-        <div class="card-body">
-          <form action="/filmManager?action=edit" method="post">
+        <div class="card-body" style="background: aliceblue;">
+          <form action="/filmManager?action=edit&id=${idPhim}" method="post">
             <div class="row gutters">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <h6 class="mb-2 text-primary">Chỉnh sửa thông tin phim</h6>

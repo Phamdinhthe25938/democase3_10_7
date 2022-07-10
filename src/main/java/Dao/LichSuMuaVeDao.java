@@ -23,6 +23,24 @@ public class LichSuMuaVeDao implements ILichSuMuaVeDao {
     private static final String SELECT_QUANTITY_ACCOUNT_BUY_VE= "select count(idAccount) as quantityAccount from velichsumua group by idAccount";
 
     private static final String SELECT_QUANTITY_IDACCOUNT_BUY_VE = "select idAccount as idAccountSoldVe from velichsumua group by idAccount";
+
+    private static final String SELECT_ID_GHE_BUY_ID_PHIM= "select idGhe as idGheByIdPhim  from velichsumua where idPhim=?";
+
+     public ArrayList<Integer> listIdGheByIdPhim(int idPhim){
+         ArrayList<Integer> listIdGheByIdPhim = new ArrayList<>();
+        try( Connection connection =connectionMySQL.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ID_GHE_BUY_ID_PHIM)){
+            preparedStatement.setInt(1,idPhim);
+            ResultSet resultSet =preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int idGhe = resultSet.getInt("idGheByIdPhim");
+                listIdGheByIdPhim.add(idGhe);
+            }
+            return listIdGheByIdPhim;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+     }
     @Override
     public void insertLichSuMuaVe(LichSuMuaVe ve) throws SQLException {
         try( Connection connection =connectionMySQL.getConnection();

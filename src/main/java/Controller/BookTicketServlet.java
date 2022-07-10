@@ -47,14 +47,6 @@ public class BookTicketServlet extends HttpServlet {
                         throw new RuntimeException(e);
                     }
                     VeService.ves = veDao.selectAllVe();
-//                   long millis = System.currentTimeMillis();
-//                    java.sql.Date date= new java.sql.Date(millis);
-//                   try {
-//                    lichSuMuaVeDao.insertLichSuMuaVe(new LichSuMuaVe(VeService.ves.get(VeService.ves.size()-1).getIdVe(),FilmService.findFilm(idPhim),GheService.findGhe(idGhe),AccountService.findAccount(idUser),date));
-//                    } catch (SQLException e) {
-//                    throw new RuntimeException(e);
-//                    }
-//                   LichSuMuaVeSerVice.ves= lichSuMuaVeDao.selectAllVe();
                 resp.sendRedirect("/viewUser");
             break;
         }

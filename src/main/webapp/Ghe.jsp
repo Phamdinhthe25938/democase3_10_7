@@ -1,3 +1,4 @@
+<%@ page import="Service.VeService" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -36,7 +37,7 @@
 				<div class="row">
 					<div class="booking-form">
 						<div class="form-header">
-							<h1>Book a car</h1>
+							<h1>Book a Ticket</h1>
 						</div>
 						<form method="post" action="/BookTicket?action=chonghe&idPhim=${idPhim}&idUser=${idUser}">
 							<div class="row">
@@ -71,15 +72,15 @@
 									</div>
 								</div>
 								<div class="col-sm-4">
+									<div>
+										<p style="color: #17a2b8;">Ghế trống :</p>
+										<c:forEach items="${listGheDrum}" var="g">
+											<i style="color:#fff;">${g},</i>
+										</c:forEach>
+									</div>
 									<div class="form-group">
 										<span class="form-label">Số ghế</span>
 										<input name="idGhe" class="form-control" type="number" placeholder="Nhập số ghế">
-										 <%
-											 String message = (String) request.getAttribute("message");
-											 if(message !=null){
-												 out.print(message);
-											 }
-										 %>
 										<span class="form-label">Tên ghê</span>
 										<input name="tenGhe" class="form-control" type="text" placeholder="Nhập tên ghế">
 									</div>

@@ -45,7 +45,6 @@ public class VeDao implements IVeDao {
             return false;
         }
     }
-
     @Override
     public Ve selectVe(int id) {
         return null;

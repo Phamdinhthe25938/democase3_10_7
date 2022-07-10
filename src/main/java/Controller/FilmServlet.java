@@ -94,7 +94,7 @@ public class FilmServlet extends HttpServlet {
     }
 
     private void editFilm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ParseException {
-        int idPhim = Integer.parseInt(request.getParameter("idPhim"));
+        int idPhim = Integer.parseInt(request.getParameter("id"));
         String tenPhim = request.getParameter("tenPhim");
         String thoiGian = request.getParameter("thoiGian");
         String loaiPhim = request.getParameter("loaiPhim");
