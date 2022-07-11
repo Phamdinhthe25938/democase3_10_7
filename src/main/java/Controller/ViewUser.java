@@ -3,6 +3,7 @@ package Controller;
 import Controller.Filter.FilterAdmin;
 import Controller.Filter.FilterUser;
 import Dao.VeDao;
+import Modal.Ve;
 import Service.AccountService;
 import Service.FilmService;
 import Service.VeService;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(urlPatterns = "/viewUser")
 public class ViewUser extends HttpServlet {
@@ -24,7 +26,8 @@ public class ViewUser extends HttpServlet {
         req.setAttribute("idUser",  AccountService.findIdAccountByName(FilterUser.account.getUserName()));
         req.setAttribute("username", FilterUser.account.getUserName());
         int idUser = AccountService.findIdAccountByName(FilterUser.account.getUserName());
-        req.setAttribute("quantity", VeService.listVeByIdUser(idUser).size());
+        ArrayList<Ve> listVeByIdUser = VeService.listVeByIdUser(idUser);
+        req.setAttribute("quantity",listVeByIdUser.size());
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/ViewUser.jsp");
         requestDispatcher.forward(req,resp);
     }

@@ -31,7 +31,7 @@
 </head>
 
 <body>
-	<div id="booking" class="section">
+	<div id="booking"  class="section" style="background-image: url("")" >
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
@@ -39,7 +39,10 @@
 						<div class="form-header">
 							<h1>Book a Ticket</h1>
 						</div>
-						<form method="post" action="/BookTicket?action=chonghe&idPhim=${idPhim}&idUser=${idUser}">
+						<form method="post" action="
+						/BookTicket?action=chonghe&idPhim=${idPhim}&idUser=${idUser}&img=${img}
+                        &tenPhim=${tenPhim}&loaiPhim=${loaiPhim}&quocGia=${quocGia}
+                        &thoiGian=${thoiGian}&ngayKhoiChieu=${ngayKhoiChieu}&giaPhim=${giaPhim}&idUser=${idUser}">
 							<div class="row">
 								<div class="col-sm-8">
 									<div class="form-group" style="display: flex">
@@ -86,6 +89,17 @@
 									</div>
 								</div>
 							</div>
+							<p >
+								<span style="color:#fff;">Chú ý :</span>
+							   <i style="color: red;">
+								   <%
+									   String message = (String) request.getAttribute("message");
+									   if(message !=null){
+										   out.print(message);
+									   }
+								   %>
+							   </i>
+							</p>
 							<div id="bookingNowTicket" class="form-btn">
 								<button class="submit-btn" type="submit">Book Now</button>
 							</div>

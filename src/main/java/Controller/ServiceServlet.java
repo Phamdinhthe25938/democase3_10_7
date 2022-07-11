@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/dichvu")
 public class ServiceServlet extends HttpServlet {
@@ -60,6 +61,17 @@ public class ServiceServlet extends HttpServlet {
                 req.setAttribute("listVe", VeService.listVeByIdUser(idUser1));
                 int quantityTicket = VeService.listVeByIdUser(idUser1).size();
                 req.setAttribute("quantity",quantityTicket);
+                requestDispatcher = req.getRequestDispatcher("/Cart.jsp");
+                requestDispatcher.forward(req,resp);
+                break;
+            case "xoave":
+                int idUser3 = Integer.parseInt(req.getParameter("idUser"));
+                req.setAttribute("idUser",idUser3);
+                int idVe = Integer.parseInt(req.getParameter("idVe"));
+                veDao.deleteVeById(idVe);
+                VeService.ves = veDao.selectAllVe();
+                int quantityTicket1 = VeService.listVeByIdUser(idUser3).size();
+                req.setAttribute("quantity",quantityTicket1);
                 requestDispatcher = req.getRequestDispatcher("/Cart.jsp");
                 requestDispatcher.forward(req,resp);
                 break;

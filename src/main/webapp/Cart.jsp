@@ -158,7 +158,8 @@
             <div class="d-flex flex-row align-items-center">
               <span class="d-block">1</span>
               <span class="d-block ml-5 font-weight-bold priceTicket"style="width: 50px;color:coral;">${i.film.giaPhim}</span>đ
-              <i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+              <a href="/dichvu?action=xoave&idUser=${idUser}&idVe=${i.idVe}"><i class="fa fa-trash-o ml-3 text-black-50"></i></a>
+            </div>
           </div>
         </c:forEach>
       </div>

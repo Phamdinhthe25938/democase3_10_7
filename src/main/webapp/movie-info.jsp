@@ -30,11 +30,23 @@
     <!-- Theme styles -->
     <link href="./css/dot-icons.css" rel="stylesheet" type="text/css">
     <link href="./css/theme.css" rel="stylesheet" type="text/css">
+    <style>
+        #replybtn{
+            height: 30px;
+            max-width: 50px;
+            display: flex;
+            justify-content: center;
+            margin-top: -15px;
+        }
+        .header-view-pannel{
+            height: 40px;
+        }
+    </style>
 </head>
 <body class="body">
 <header class="header header-horizontal header-view-pannel">
     <div class="container">
-        <nav class="navbar">
+        <nav class="navbar" id="replybtn">
             <a class="navbar-brand" href="/viewUser">
                         <span class="logo-element">
                             <span class="logo-tape">
@@ -274,8 +286,7 @@
                                 </p>
                             </div>
                             <div class="entity-extra">
-                                <div class="grid-md row">
-
+                                <div class="grid-md row" style="height: 23px">
                                     <c:set var="sao" value="${c.star}"/>
                                     <c:choose>
                                         <c:when test="${sao==1}">
@@ -352,7 +363,7 @@
                                             <div class="container">
                                                 <nav class="navbar">
                                                     <div class="navbar-collapse">
-                                                        <ul class="navbar-nav">
+                                                        <ul class="navbar-nav" style="position: relative;bottom: 26px">
                                                             <li class="nav-item nav-item-arrow-down nav-hover-show-sub">
                                                                 <a class="nav-link" onclick="display()"><i class="fas fa-reply"></i>&nbsp;&nbsp;reply</a>
                                                                 <div class="nav-arrow" ><i class="fas fa-chevron-down"></i></div>

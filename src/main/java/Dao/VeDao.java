@@ -22,6 +22,7 @@ public class VeDao implements IVeDao {
 
     private static final String  DELETE_VE_BY_ID_ACCOUNT= "DELETE FROM VE WHERE idAccount= ?";
 
+    private static final String  DELETE_VE_BY_ID= "DELETE FROM VE WHERE idVe=?";
     @Override
     public void insertVe(Ve ve) throws SQLException {
         try(Connection connection = connectionMySQL.getConnection();
@@ -35,10 +36,20 @@ public class VeDao implements IVeDao {
             printSQLException(e);
         }
     }
-    public boolean deleteVeByIdAccount(int idAccount){
+    public boolean deleteVeByIdAccount(int idAccount) {
         try (Connection connection = connectionMySQL.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_VE_BY_ID_ACCOUNT);
             preparedStatement.setInt(1, idAccount);
+            return preparedStatement.execute();
+        } catch (SQLException e) {
+            printSQLException(e);
+            return false;
+        }
+    }
+    public boolean deleteVeById(int idVe){
+        try (Connection connection = connectionMySQL.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_VE_BY_ID);
+            preparedStatement.setInt(1, idVe);
             return preparedStatement.execute();
         } catch (SQLException e) {
             printSQLException(e);
